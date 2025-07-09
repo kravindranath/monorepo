@@ -166,7 +166,18 @@ function Dashboard() {
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel>
-            <ModelTuner />
+            <ModelTuner
+              onChange={(config) => console.log(config)}
+              temperatureMin={0.1}
+              temperatureMax={1}
+              temperatureStep={0.05}
+              topPMin={0.1}
+              topPMax={1}
+              topPStep={0.1}
+              maxTokensMin={100}
+              maxTokensMax={4000}
+              maxTokensStep={100}
+            />
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

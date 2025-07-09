@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 
-export default function ModelTuner({ onChange }) {
+export default function ModelTuner({
+  onChange,
+  temperatureMin = 0,
+  temperatureMax = 1,
+  temperatureStep = 0.01,
+  topPMin = 0,
+  topPMax = 1,
+  topPStep = 0.01,
+  maxTokensMin = 1,
+  maxTokensMax = 8192,
+  maxTokensStep = 1,
+}) {
   const [temperature, setTemperature] = useState(0.7);
   const [topP, setTopP] = useState(1.0);
   const [maxTokens, setMaxTokens] = useState(1024);
@@ -16,59 +27,63 @@ export default function ModelTuner({ onChange }) {
         borderRadius: "8px",
         padding: "1rem",
         fontFamily: "sans-serif",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.5rem",
+        maxWidth: "400px",
       }}
     >
-      <h3>GPT Model Tuner</h3>
+      <h3 style={{ margin: 0 }}>GPT Model Tuner</h3>
 
-      <label>
-        Temperature ({temperature.toFixed(2)})
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+        <label htmlFor="temperature">
+          Temperature ({temperature.toFixed(2)})
+        </label>
         <input
+          id="temperature"
           type="range"
-          min="0"
-          max="1"
-          step="0.01"
+          min={temperatureMin}
+          max={temperatureMax}
+          step={temperatureStep}
           value={temperature}
           onChange={(e) => {
             setTemperature(parseFloat(e.target.value));
             handleChange();
           }}
         />
-      </label>
+      </div>
 
-      <br />
-      <br />
-
-      <label>
-        Top P ({topP.toFixed(2)})
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+        <label htmlFor="topP">Top P ({topP.toFixed(2)})</label>
         <input
+          id="topP"
           type="range"
-          min="0"
-          max="1"
-          step="0.01"
+          min={topPMin}
+          max={topPMax}
+          step={topPStep}
           value={topP}
           onChange={(e) => {
             setTopP(parseFloat(e.target.value));
             handleChange();
           }}
         />
-      </label>
+      </div>
 
-      <br />
-      <br />
-
-      <label>
-        Max Tokens
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+        <label htmlFor="maxTokens">Max Tokens</label>
         <input
+          id="maxTokens"
           type="number"
           value={maxTokens}
-          min="1"
-          max="8192"
+          min={maxTokensMin}
+          max={maxTokensMax}
+          step={maxTokensStep}
           onChange={(e) => {
             setMaxTokens(parseInt(e.target.value, 10));
             handleChange();
           }}
         />
-      </label>
+      </div>
     </div>
   );
 }
