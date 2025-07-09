@@ -1,6 +1,6 @@
 {
   "name": "@kravindranath/gpt-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "GPT Model Tuning UI component for React",
   "main": "dist/gpt-ui.umd.js",
   "module": "dist/gpt-ui.es.js",
