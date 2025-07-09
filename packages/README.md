@@ -19,5 +19,5 @@ Each package is independently versioned and can be published to a registry (e.g.
 Install the GPT UI package into your app:
 
 ```bash
-npm install @kravindranath/gpt-ui --registry=https://npm.pkg.github.com
+npm install @kravindranath/gpt-ui --registry=https://npm.pkg.github.com --legacy-peer-deps
 ```

@@ -18,6 +18,8 @@ import {
   SliderThumb,
 } from "@chakra-ui/react";
 
+import { ModelTuner } from "@kravindranath/gpt-ui";
+
 function Dashboard() {
   const API_HOST = "https://naturalai.azure-api.net";
   const [baseUrl] = React.useState(API_HOST);
@@ -163,7 +165,9 @@ function Dashboard() {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-          <AccordionPanel>Model control</AccordionPanel>
+          <AccordionPanel>
+            <ModelTuner />
+          </AccordionPanel>
         </AccordionItem>
       </Accordion>
     </>
