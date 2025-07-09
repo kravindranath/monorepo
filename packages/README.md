@@ -6,6 +6,13 @@ Each package is independently versioned and can be published to a registry (e.g.
 
 ---
 
+#### Publishing
+
+```bash
+npm version patch
+npm publish --registry=https://npm.pkg.github.com/
+```
+
 ## 📚 Available Packages
 
 | Package Name | Description                    | Published As            |
