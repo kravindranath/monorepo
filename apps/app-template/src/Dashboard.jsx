@@ -18,9 +18,6 @@ import {
   SliderThumb,
 } from "@chakra-ui/react";
 
-import DashboardLayout from "./DashboardLayout.jsx";
-import ModelControls from "./ModelControls";
-
 function Dashboard() {
   const API_HOST = "https://naturalai.azure-api.net";
   const [baseUrl] = React.useState(API_HOST);
@@ -70,7 +67,7 @@ function Dashboard() {
   };
 
   return (
-    <DashboardLayout>
+    <>
       <Accordion allowMultiple defaultIndex={[0]}>
         {/* Main Configurator */}
         <AccordionItem>
@@ -166,12 +163,10 @@ function Dashboard() {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-          <AccordionPanel>
-            <ModelControls />
-          </AccordionPanel>
+          <AccordionPanel>Model control</AccordionPanel>
         </AccordionItem>
       </Accordion>
-    </DashboardLayout>
+    </>
   );
 }
 
