@@ -10,6 +10,7 @@ Each package is independently versioned and can be published to a registry (e.g.
 
 ```bash
 npm version patch
+npm run build
 npm publish --registry=https://npm.pkg.github.com/
 ```
 
