@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+const rowStyle = { display: "flex", flexDirection: "column", gap: "0.5rem" };
+
 export default function ModelTuner({
   onChange,
   temperatureMin = 0,
@@ -16,9 +18,9 @@ export default function ModelTuner({
   const [topP, setTopP] = useState(1.0);
   const [maxTokens, setMaxTokens] = useState(1024);
 
-  const handleChange = () => {
+  useEffect(() => {
     onChange?.({ temperature, topP, maxTokens });
-  };
+  }, [temperature, topP, maxTokens]);
 
   return (
     <div
@@ -33,9 +35,9 @@ export default function ModelTuner({
         maxWidth: "400px",
       }}
     >
-      <h3 style={{ margin: 0 }}>GPT Model Tuner</h3>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <h3>GPT Model Tuner</h3>
+      <br />
+      <div style={rowStyle}>
         <label htmlFor="temperature">
           Temperature ({temperature.toFixed(2)})
         </label>
@@ -53,7 +55,7 @@ export default function ModelTuner({
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <div style={rowStyle}>
         <label htmlFor="topP">Top P ({topP.toFixed(2)})</label>
         <input
           id="topP"
@@ -69,7 +71,7 @@ export default function ModelTuner({
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <div style={rowStyle}>
         <label htmlFor="maxTokens">Max Tokens</label>
         <input
           id="maxTokens"
